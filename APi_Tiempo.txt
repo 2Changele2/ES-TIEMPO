@@ -1,0 +1,28 @@
+
+https://api.openweathermap.org/data/3.0/onecall?lat=33.44&lon=-94.04&exclude=hourly,daily&appid=574e6bfed3631e8850f21f8c2cf9c59d
+https://api.openweathermap.org/data/2.5/weather?q=Guadalajara,es&APPID=574e6bfed3631e8850f21f8c2cf9c59d
+
+
+
+var axios = require('axios');
+
+const apiKey = {
+  aemet: "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtdWNoby1tdW5pQGhvdG1haWwuY29tIiwianRpIjoiNzVmZGY1ZmEtZmE5YS00YzM5LTllMWQtMWYwOGM0NzI5ZjIyIiwiaXNzIjoiQUVNRVQiLCJpYXQiOjE2NTQyODUwMjMsInVzZXJJZCI6Ijc1ZmRmNWZhLWZhOWEtNGMzOS05ZTFkLTFmMDhjNDcyOWYyMiIsInJvbGUiOiIifQ.4C_E8j2AKA_jPIIdqLadrTZs6BTBFVI4LI5wq77atuU",
+  openWeatherMap: "574e6bfed3631e8850f21f8c2cf9c59d"
+}
+
+var config = {
+  method: 'get',
+  url: `https://api.openweathermap.org/data/2.5/weather?q=Guadalajara,es&APPID=${apiKey.openWeatherMap}&units=metric`,
+  headers: {
+  }
+};
+
+axios(config)
+.then(function (response) {
+  console.log(JSON.stringify(response.data));
+})
+.catch(function (error) {
+  console.log(error);
+});
+
